@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">MainComponentsOfAndroid</string>
     <string name="get_contacts">Get Contacts</string>
+    <string name="service">Service</string>
+    <string name="alarm_manager">Alarm Manager</string>
+    <string name="work_manager">Work manager</string>
+    <string name="job_intent_service">Job intent service</string>
+    <string name="job_dispatcher">Job dispatcher</string>
+    <string name="intent_service">intent service</string>
+    <string name="foreground_service">Foreground service</string>
 </resources>
