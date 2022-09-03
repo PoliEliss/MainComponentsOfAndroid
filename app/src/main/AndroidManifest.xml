@@ -4,6 +4,8 @@
     package="com.rorono.maincomponentsofandroid">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
@@ -32,6 +34,11 @@
         <service android:name=".ServiceTimer"/>
         <service android:name=".ForegroundService"/>
         <service android:name=".IntentServiceExample"/>
+        <service android:name=".IntentServiceExample2"/>
+        <service android:name=".JobServiceExample"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name=".JobIntentServiceExample"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>
 
 </manifest>
