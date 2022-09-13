@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/contentProviderFragment"
+        android:title=""
+        android:icon="@drawable/ic__remember_me_24"/>
+
+    <item android:id="@+id/serviceTimerFragment"
+        android:title=""
+        android:icon="@drawable/ic_time_24"/>
+
+
+</menu>
