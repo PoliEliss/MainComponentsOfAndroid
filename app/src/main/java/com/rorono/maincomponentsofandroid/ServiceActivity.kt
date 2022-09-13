@@ -27,7 +27,7 @@ class ServiceActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.simpleService.setOnClickListener {
             stopService(ForegroundService.newIntent(this))
-            startService(ServiceTimer.newIntent(this, 10))
+           // startService(ServiceTimer.newIntent(this, 10))
         }
         binding.foregroundService.setOnClickListener {
             showNotification()
