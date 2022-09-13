@@ -8,4 +8,10 @@
     <string name="job_scheduler">Job scheduler</string>
     <string name="intent_service">intent service</string>
     <string name="foreground_service">Foreground service</string>
+    <string name="_00_00_00">00:00:00</string>
+    <string name="start">START</string>
+    <string name="reset">RESET</string>
+    <string name="stop">\" Stop\"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
