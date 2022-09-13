@@ -6,10 +6,12 @@ import android.content.Intent
 import android.os.IBinder
 import android.util.Log
 import kotlinx.coroutines.*
+import java.util.*
+import javax.xml.transform.Source
 
 
 class ServiceTimer : Service() {
-    private val coroutineScope = CoroutineScope(Dispatchers.Main)
+    private val timer = Timer()
     override fun onCreate() {
         super.onCreate()
         log("onCreate")
@@ -17,36 +19,45 @@ class ServiceTimer : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         log("onStartCommand")
-        val start = intent?.getIntExtra(EXTRA_START, 0) ?: 0
-        coroutineScope.launch {
-            for (i in start until start + 100) {
-                delay(100)
-                log("timer $i")
+        val time = intent?.getDoubleExtra(EXTRA_TIMER, 0.0) ?: 0.0
+        timer.scheduleAtFixedRate(TimeTask(time), 0, 1000)
 
-            }
-        }
-        return START_REDELIVER_INTENT
+        return START_NOT_STICKY
+    }
+
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        log("onDestroy")
+        timer.cancel()
     }
 
     override fun onBind(p0: Intent?): IBinder? {
         TODO("Not yet implemented")
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        log("onDestroy")
-        coroutineScope.cancel()
-    }
-
     private fun log(message: String) {
         Log.d("SERVICE", "Service: $message")
     }
 
+    private inner class TimeTask(private var time: Double) : TimerTask() {
+        override fun run() {
+            val intent = Intent(TIMER_UPDATE)
+            time++
+            intent.putExtra(EXTRA_TIMER,time)
+            sendBroadcast(intent)
+        }
+
+    }
+
     companion object {
-        private const val EXTRA_START = "start"
-        fun newIntent(context: Context, startInt: Int): Intent {
-            return Intent(context, ServiceTimer::class.java).apply {
-                putExtra(EXTRA_START, startInt)
+        const val TIMER_UPDATE = "timerUpdate"
+         const val EXTRA_TIMER = "startTimer"
+
+        fun newIntentTimer(context: Context,startTimer:Double):Intent{
+            return Intent(context,ServiceTimer::class.java).apply {
+                putExtra(EXTRA_TIMER,startTimer)
             }
         }
     }
