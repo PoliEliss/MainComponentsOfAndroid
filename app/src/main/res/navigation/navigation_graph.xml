@@ -11,6 +11,19 @@
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <fragment
+        android:id="@+id/serviceTimerFragment"
+        android:name="com.rorono.maincomponentsofandroid.screens.ServiceTimerFragment"
+        android:label="ServiceTimerFragment" >
+        <action
+            android:id="@+id/action_serviceTimerFragment_to_contentProviderFragment"
+            app:destination="@id/contentProviderFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/contentActivity"
+        android:name="com.rorono.maincomponentsofandroid.screens.ContentActivity"
+        android:label="activity_content"
+        tools:layout="@layout/activity_content" />
+    <fragment
         android:id="@+id/contentProviderFragment"
         android:name="com.rorono.maincomponentsofandroid.screens.ContentProviderFragment"
         android:label="ContentProviderFragment" >
@@ -19,11 +32,7 @@
             app:destination="@id/serviceTimerFragment" />
     </fragment>
     <fragment
-        android:id="@+id/serviceTimerFragment"
-        android:name="com.rorono.maincomponentsofandroid.screens.ServiceTimerFragment"
-        android:label="ServiceTimerFragment" >
-        <action
-            android:id="@+id/action_serviceTimerFragment_to_contentProviderFragment"
-            app:destination="@id/contentProviderFragment" />
-    </fragment>
+        android:id="@+id/batteryFragment"
+        android:name="com.rorono.maincomponentsofandroid.screens.BatteryFragment"
+        android:label="BatteryFragment" />
 </navigation>
