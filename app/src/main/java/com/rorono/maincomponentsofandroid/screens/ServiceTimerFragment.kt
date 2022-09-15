@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +18,8 @@ import kotlin.math.roundToInt
 
 
 class ServiceTimerFragment : Fragment() {
+
+    private val broadcastReceiver = com.rorono.maincomponentsofandroid.BroadcastReceiver()
 
     private var time = 0.0
     private var timeStarted = false
@@ -101,6 +104,15 @@ class ServiceTimerFragment : Fragment() {
         binding.buttonStartAndStopTimer.setImageResource(R.drawable.ic__play_arrow_24)
         binding.buttonStartAndStopTimer.setBackgroundResource(R.drawable.custom_button_start)
         timeStarted = false
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intentFilter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+    }
+
+    override fun onStop() {
+        super.onStop()
     }
 
 }
