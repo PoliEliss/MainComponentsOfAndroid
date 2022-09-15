@@ -18,18 +18,12 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/buttonGetContacts"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
-        android:backgroundTint="@color/liteBlue"
-        android:text="@string/read_contacts"
-        android:textColor="@color/white"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_marginBottom="70dp"
+        android:text="ACIVITY"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
