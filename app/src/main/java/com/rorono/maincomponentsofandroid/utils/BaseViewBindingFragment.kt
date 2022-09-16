@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 
-open class BaseViewBindingFragment<VB:ViewBinding>(private val inflate: (LayoutInflater, ViewGroup?, Boolean)->VB):BaseFragment() {
+abstract class BaseViewBindingFragment<VB:ViewBinding>(private val inflate: (LayoutInflater, ViewGroup?, Boolean)->VB):BaseFragment() {
 
     private var _binding:VB?= null
     val binding
@@ -19,10 +19,5 @@ open class BaseViewBindingFragment<VB:ViewBinding>(private val inflate: (LayoutI
     ): View? {
         _binding = inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
