@@ -8,11 +8,21 @@
     android:orientation="vertical"
     android:gravity="center">
 
+
+ <ImageView
+     android:id="@+id/imageViewBatteryLevel"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:visibility="invisible"
+     android:layout_marginBottom="20dp"/>
+
+
  <TextView
      android:id="@+id/batteryStatus"
      android:layout_width="wrap_content"
      android:textSize="20sp"
      android:layout_height="wrap_content"/>
+
 
  <com.google.android.material.button.MaterialButton
      android:id="@+id/buttonGetBatteryLevel"
@@ -20,7 +30,7 @@
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:text="@string/check_phone_charge_level"
-     android:layout_marginTop="300dp"
+     android:layout_marginTop="20dp"
      android:backgroundTint="@color/liteBlue"/>
 
 </LinearLayout>
