@@ -5,7 +5,6 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.navigation.Navigation
@@ -21,23 +20,20 @@ class ContentProviderFragment :
     BaseViewBindingFragment<FragmentContentProviderBinding>(FragmentContentProviderBinding::inflate) {
     private var adapter = PhoneNumbersAdapter()
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.recyclerViewContactList.adapter = adapter
         binding.buttonGetContacts.setOnClickListener {
             checkPermissionReadContact()
-            binding.recyclerViewContactList.adapter = adapter
         }
 
         binding.buttonWriteContacts.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_contentProviderFragment_to_addContactNumberFragment)
         }
         adapter.setOnListener(object : OnIemClickListener {
-
             override fun onItemClickCall(contact: Contact) {
                 val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + contact.tel))
                 startActivity(intent)
-
             }
         })
     }
@@ -51,7 +47,7 @@ class ContentProviderFragment :
             ActivityCompat.requestPermissions(
                 requireActivity(),
                 Array(1) { android.Manifest.permission.READ_CONTACTS },
-                REQUEST_CODE
+                REQUEST_CODE_READ_CONTACTS
             )
         } else
             adapter.submitList(getContacts())
@@ -63,11 +59,11 @@ class ContentProviderFragment :
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null
         )
         cursor?.let {
-            while (cursor.moveToNext()) {
+            while (it.moveToNext()) {
                 val name =
-                    cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
+                    it.getString(it.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME))
                 val number =
-                    cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                    it.getString(it.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
                 val contact = Contact(name, number)
                 listContacts.add(contact)
             }
@@ -75,9 +71,7 @@ class ContentProviderFragment :
         cursor?.close()
         return listContacts
     }
-
-
     companion object {
-        const val REQUEST_CODE = 200
+        const val REQUEST_CODE_READ_CONTACTS = 200
     }
 }
