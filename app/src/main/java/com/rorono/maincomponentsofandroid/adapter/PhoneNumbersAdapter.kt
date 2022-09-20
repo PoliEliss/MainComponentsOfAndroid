@@ -9,11 +9,9 @@ import com.rorono.maincomponentsofandroid.ItemCallback
 import com.rorono.maincomponentsofandroid.databinding.ItemContactBinding
 
 
-class PhoneNumbersAdapter :ListAdapter<Contact, PhoneNumbersAdapter.ContactViewHolder>(ItemCallback()) {
-
-
+class PhoneNumbersAdapter : ListAdapter<Contact, PhoneNumbersAdapter.ContactViewHolder>(ItemCallback()) {
     lateinit var onItemClickListener: OnIemClickListener
-    fun setOnListener(listener:OnIemClickListener){
+    fun setOnListener(listener: OnIemClickListener) {
         onItemClickListener = listener
     }
 
@@ -29,15 +27,14 @@ class PhoneNumbersAdapter :ListAdapter<Contact, PhoneNumbersAdapter.ContactViewH
             ivCallContact.setOnClickListener {
                 onItemClickListener.onItemClickCall(contact = contact)
             }
-
-
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val binding = ItemContactBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ContactViewHolder(binding)
     }
+
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
