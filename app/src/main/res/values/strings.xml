@@ -16,4 +16,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="read_contacts">Read Contacts</string>
     <string name="check_phone_charge_level">Узнать уровень зарядки телефона</string>
+    <string name="name">Name</string>
+    <string name="number">Number</string>
+    <string name="fiels_not_empty">Поле не должно быть пустым</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
 </resources>
