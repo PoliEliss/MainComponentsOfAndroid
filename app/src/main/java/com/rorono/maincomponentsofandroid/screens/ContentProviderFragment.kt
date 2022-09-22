@@ -32,7 +32,7 @@ class ContentProviderFragment :
         }
         adapter.setOnListener(object : OnIemClickListener {
             override fun onItemClickCall(contact: Contact) {
-                val intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + contact.tel))
+                val intent = Intent(Intent.ACTION_DIAL, Uri.parse(getString(R.string.tel) + contact.tel))
                 startActivity(intent)
             }
         })
