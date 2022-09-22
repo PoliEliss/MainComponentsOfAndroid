@@ -1,15 +1,12 @@
 package com.rorono.maincomponentsofandroid.viewmodel
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlin.math.roundToInt
 
-class MainViewModel() : ViewModel() {
+class MainViewModel : ViewModel() {
 
-    val stateTimer = MutableLiveData<Boolean>(false)
-
+    val stateTimer = MutableLiveData(false)
     val time = MutableLiveData<String>()
 
     fun getStatFun(state: Boolean) {
@@ -26,5 +23,4 @@ class MainViewModel() : ViewModel() {
         val seconds = resultInt % 86400 % 3600 % 60
      makeTimeString(hours, minutes, seconds)
     }
-
 }
