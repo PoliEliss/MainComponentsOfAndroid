@@ -8,7 +8,7 @@ import android.provider.ContactsContract
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.navigation.Navigation
-import com.rorono.maincomponentsofandroid.Contact
+import com.rorono.maincomponentsofandroid.models.Contact
 import com.rorono.maincomponentsofandroid.R
 import com.rorono.maincomponentsofandroid.adapter.OnIemClickListener
 import com.rorono.maincomponentsofandroid.adapter.PhoneNumbersAdapter
