@@ -21,4 +21,10 @@
     <string name="fiels_not_empty">Поле не должно быть пустым</string>
     <string name="save">Сохранить</string>
     <string name="cancel">Отмена</string>
+    <string name="ok">Okay</string>
+    <string name="number_contaion_11_digits">Номер должен содрежать 11 цифр</string>
+    <string name="number_contain_only_numbers">Номер должен содержать только цифры</string>
+    <string name="InvalidForm">InvalidForm</string>
+    <string name="tel">tel:</string>
+    <string name="add_contacts">add contacts</string>
 </resources>
