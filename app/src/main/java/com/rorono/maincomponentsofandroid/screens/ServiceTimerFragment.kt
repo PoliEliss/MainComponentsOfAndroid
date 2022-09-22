@@ -22,9 +22,7 @@ import kotlin.math.roundToInt
 class ServiceTimerFragment : BaseViewBindingFragment<FragmentServiceTimerBinding>(
     FragmentServiceTimerBinding::inflate
 ) {
-
     private lateinit var viewModel: MainViewModel
-
     private var time = 0.0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,43 +45,30 @@ class ServiceTimerFragment : BaseViewBindingFragment<FragmentServiceTimerBinding
             binding.buttonResetTimer.visibility = View.GONE
         }
         activity?.registerReceiver(updateTime, IntentFilter(ServiceTimer.TIMER_UPDATE))
+        viewModel.time.observe(viewLifecycleOwner) {
+            binding.tvTimer.text = it
+        }
 
     }
 
     private val updateTime: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             time = intent?.getDoubleExtra(ServiceTimer.EXTRA_TIMER, 0.0) ?: 0.0
-            binding.tvTimer.text = getTimerStringFromDouble(time)
+            viewModel.getTimerStringFromDouble(time)
         }
     }
-
 
     private fun resetTimer() {
         stopTimer()
         time = 0.0
-        binding.tvTimer.text = getTimerStringFromDouble(time)
+        viewModel.getTimerStringFromDouble(time)
     }
-
 
     private fun startAndStopTimer() {
         if (viewModel.stateTimer.value as Boolean) {
             stopTimer()
         } else
             startTimer()
-    }
-
-    private fun getTimerStringFromDouble(time: Double): String {
-        val resultInt = time.roundToInt()
-        val hours = resultInt % 86400 / 3600
-        val minutes = resultInt % 86400 % 3600 / 60
-        val seconds = resultInt % 86400 % 3600 % 60
-        return makeTimeString(hours, minutes, seconds)
-
-    }
-
-
-    private fun makeTimeString(hour: Int, min: Int, sec: Int): String {
-        return String.format("%02d:%02d:%02d", hour, min, sec)
     }
 
     private fun startTimer() {
