@@ -10,7 +10,8 @@
         android:id="@+id/ivAvatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/iv_avatar_margin_top"
+        android:contentDescription="@string/add_avatar"
         android:src="@drawable/ic_baseline_add_a_photo_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,18 +20,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="@dimen/margin_top_ll"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayoutNameContact"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            app:helperTextTextColor="@color/red"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_input_layout_margin"
             app:helperText="Enter name"
-            android:layout_margin="20dp"
-            android:textSize="20sp">
+            app:helperTextTextColor="@color/red">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtNameContact"
@@ -38,7 +38,8 @@
                 android:layout_height="match_parent"
                 android:hint="@string/name"
                 android:inputType="text"
-                android:lines="1" />
+                android:lines="1"
+                android:textSize="@dimen/text_input_edit_text_size" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -46,34 +47,34 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:helperTextTextColor="@color/red"
+            android:layout_margin="@dimen/text_input_layout_margin"
             app:counterEnabled="true"
             app:counterMaxLength="11"
-            app:helperText="Enter phone number"
-            android:layout_margin="20dp">
+            app:helperText="@string/enter_phone_number"
+            app:helperTextTextColor="@color/red">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edtTelNumber"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:maxLength="11"
                 android:hint="@string/number"
                 android:inputType="phone"
-                android:lines="1"/>
-
+                android:lines="1"
+                android:maxLength="11"
+                android:textSize="@dimen/text_input_edit_text_size" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
-
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginStart="@dimen/mb_margin_start"
+        android:layout_marginBottom="@dimen/material_bottom_margin_bottom"
         android:backgroundTint="@color/liteBlue"
         android:text="@string/cancel"
         android:textColor="@color/white"
-        app:cornerRadius="10dp"
+        app:cornerRadius="@dimen/mb_corner_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -81,14 +82,12 @@
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginEnd="@dimen/mb_margin_end"
+        android:layout_marginBottom="@dimen/material_bottom_margin_bottom"
         android:backgroundTint="@color/liteBlue"
         android:text="@string/save"
         android:textColor="@color/white"
-        app:cornerRadius="10dp"
+        app:cornerRadius="@dimen/mb_corner_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

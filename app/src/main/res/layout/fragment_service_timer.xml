@@ -1,53 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
 
     <TextView
         android:id="@+id/tvTimer"
-        android:layout_width="279dp"
-        android:layout_height="273dp"
+        android:layout_width="@dimen/tv_timer_lw"
+        android:layout_height="@dimen/tv_timer_lh"
         android:background="@drawable/ring_text_view"
         android:gravity="center"
         android:text="@string/_00_00_00"
         android:textColor="@color/black"
-        android:textSize="@dimen/size_tv_timer"
+        android:textSize="@dimen/tv_timer_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/buttonResetTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="@dimen/button_reset_margin_top"
         android:background="@drawable/custom_button_start"
+        android:contentDescription="@string/reset_button"
         android:src="@drawable/ic_replay_24"
         android:text="@string/reset"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/buttonStartAndStopTimer"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
 
     <ImageButton
         android:id="@+id/buttonStartAndStopTimer"
-        android:layout_width="81dp"
-        android:layout_height="77dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="@dimen/image_button_start_and_stop_width"
+        android:layout_height="@dimen/image_button_start_and_stop_height"
+        android:layout_marginTop="@dimen/image_button_start_and_stop_margin_top"
         android:background="@drawable/custom_button_start"
         android:backgroundTint="@color/liteBlue"
+        android:contentDescription="@string/start_and_pause_button"
         android:src="@drawable/ic__play_arrow_24"
         app:layout_constraintEnd_toEndOf="@+id/tvTimer"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/tvTimer"
         app:layout_constraintTop_toBottomOf="@+id/tvTimer" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="@dimen/card_view_margin"
     android:orientation="horizontal">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivAvatarContacts"
-        app:civ_border_width="1dp"
+        app:civ_border_width="@dimen/iv_avatar_contact_border_width"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_person"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="@dimen/iv_avatar_contact_margin_start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,10 +30,10 @@
             android:id="@+id/textViewNameContact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="@dimen/tv_name_contact_margin_bottom"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="@dimen/tv_name_contact_text_size" />
 
         <TextView
             android:id="@+id/textViewContactNumber"
@@ -41,8 +41,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/black"
-            android:layout_marginBottom="20dp"
-            android:textSize="18sp" />
+            android:layout_marginBottom="@dimen/tv_contact_number_margin_bottom"
+            android:textSize="@dimen/tv_contact_number_text_size" />
 
     </LinearLayout>
     <ImageView
@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginEnd="@dimen/iv_call_contact_margin_end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/phone_call_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

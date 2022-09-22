@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="@dimen/fab_margin_start"
+        android:layout_marginBottom="@dimen/fab_margin_bottom"
         android:contentDescription="@string/add_contacts" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -38,7 +38,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="50dp"/>
+        android:layout_marginEnd="@dimen/fab_margin_end"
+        android:layout_marginBottom="@dimen/fab_margin_bottom"
+        android:contentDescription="@string/get_contact_list_from_phonebook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
