@@ -3,7 +3,6 @@ package com.rorono.maincomponentsofandroid.screens
 import android.Manifest
 import android.app.AlertDialog
 import android.content.ContentProviderOperation
-import android.content.ContentResolver
 import android.content.OperationApplicationException
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -44,26 +43,25 @@ class AddContactNumberFragment :
         binding.edtNameContact.text = null
     }
 
-    private fun invalidForm(){
+    private fun invalidForm() {
         var message = ""
-        if (binding.textInputLayoutNameContact.helperText != null){
+        if (binding.textInputLayoutNameContact.helperText != null) {
             message += binding.textInputLayoutNameContact.helperText
         }
-        if (binding.textInputLayoutTelNumber.helperText != null){
+        if (binding.textInputLayoutTelNumber.helperText != null) {
             message += binding.textInputLayoutTelNumber.helperText
         }
         AlertDialog.Builder(requireActivity())
-            .setTitle("InvalidForm")
+            .setTitle(getString(R.string.InvalidForm))
             .setMessage(message)
-            .setPositiveButton("Okay"){
-                _,_->
+            .setPositiveButton(getString(R.string.ok)) { _, _ ->
 
             }.show()
     }
 
     private fun validData(): Boolean {
-       val validNumber =binding.textInputLayoutTelNumber.helperText == null
-       val validName =binding.textInputLayoutNameContact.helperText == null
+        val validNumber = binding.textInputLayoutTelNumber.helperText == null
+        val validName = binding.textInputLayoutNameContact.helperText == null
         val validEditText = binding.edtNameContact.text
         val validNumberEditText = binding.edtTelNumber.text
         if (validEditText != null) {
@@ -90,7 +88,7 @@ class AddContactNumberFragment :
     private fun requestPermissionWriteContacts() {
         ActivityCompat.requestPermissions(
             requireActivity(),
-            Array(1) { android.Manifest.permission.WRITE_CONTACTS },
+            Array(1) { Manifest.permission.WRITE_CONTACTS },
             REQUEST_CODE_WRITE_CONTACT
         )
     }
@@ -122,10 +120,10 @@ class AddContactNumberFragment :
     private fun validPhoneNumber(): String? {
         val phoneNumber = binding.edtTelNumber.text.toString()
         if (!phoneNumber.matches(".*[0-9].*".toRegex())) {
-            return "Номер должен содержать только цифры"
+            return getString(R.string.number_contain_only_numbers)
         }
         if (phoneNumber.length != 11) {
-            return "Номер должен содрежать 11 цифр"
+            return getString(R.string.number_contaion_11_digits)
         }
         return null
     }
