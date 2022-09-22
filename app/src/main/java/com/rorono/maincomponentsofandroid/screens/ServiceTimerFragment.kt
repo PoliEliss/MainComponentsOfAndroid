@@ -5,10 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.rorono.maincomponentsofandroid.R
 import com.rorono.maincomponentsofandroid.ServiceTimer
@@ -16,7 +13,6 @@ import com.rorono.maincomponentsofandroid.databinding.FragmentServiceTimerBindin
 import com.rorono.maincomponentsofandroid.utils.BaseViewBindingFragment
 import com.rorono.maincomponentsofandroid.viewmodel.MainViewModel
 import com.rorono.maincomponentsofandroid.viewmodel.MainViewModelFactory
-import kotlin.math.roundToInt
 
 
 class ServiceTimerFragment : BaseViewBindingFragment<FragmentServiceTimerBinding>(
@@ -33,7 +29,6 @@ class ServiceTimerFragment : BaseViewBindingFragment<FragmentServiceTimerBinding
 
         getButtonRendering(viewModel.stateTimer.value as Boolean)
 
-
         viewModel.stateTimer.observe(viewLifecycleOwner) {
             getButtonRendering(it)
         }
@@ -48,7 +43,6 @@ class ServiceTimerFragment : BaseViewBindingFragment<FragmentServiceTimerBinding
         viewModel.time.observe(viewLifecycleOwner) {
             binding.tvTimer.text = it
         }
-
     }
 
     private val updateTime: BroadcastReceiver = object : BroadcastReceiver() {
