@@ -29,7 +29,7 @@ class BatteryFragment :
     }
 
     private fun <T> convertDataToString(data: T): String {
-        return data.toString() + "%"
+        return data.toString() + getString(R.string.percent)
     }
 
     private fun displayingImage(percent: Int) {
