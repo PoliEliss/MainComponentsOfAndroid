@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.rorono.maincomponentsofandroid.Contact
+import com.rorono.maincomponentsofandroid.models.Contact
 import com.rorono.maincomponentsofandroid.ItemCallback
 import com.rorono.maincomponentsofandroid.databinding.ItemContactBinding
 
