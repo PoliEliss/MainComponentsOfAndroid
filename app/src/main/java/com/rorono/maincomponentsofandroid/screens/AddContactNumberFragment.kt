@@ -3,12 +3,14 @@ package com.rorono.maincomponentsofandroid.screens
 import android.Manifest
 import android.app.AlertDialog
 import android.content.ContentProviderOperation
+import android.content.Intent
 import android.content.OperationApplicationException
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.RemoteException
 import android.provider.ContactsContract
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
@@ -36,6 +38,13 @@ class AddContactNumberFragment :
                 invalidForm()
             }
         }
+        val getImage = registerForActivityResult(ActivityResultContracts.GetContent()){
+            binding.ivAvatar.setImageURI(it)
+        }
+        binding.ivAvatar.setOnClickListener {
+            getImage.launch("image/*")
+        }
+
     }
 
     private fun resetForm() {
@@ -185,5 +194,6 @@ class AddContactNumberFragment :
 
     companion object {
         const val REQUEST_CODE_WRITE_CONTACT = 200
+        const val IMAGE_REQUEST_CODE = 100
     }
 }
