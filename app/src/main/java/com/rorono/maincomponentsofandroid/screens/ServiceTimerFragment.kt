@@ -67,12 +67,12 @@ class ServiceTimerFragment : BaseViewBindingFragment<FragmentServiceTimerBinding
 
     private fun startTimer() {
         activity?.startService(ServiceTimer.newIntentTimer(requireContext(), time))
-        viewModel.getStatFun(true)
+        viewModel.getStateTimer(true)
     }
 
     private fun stopTimer() {
         activity?.stopService(ServiceTimer.newIntentTimer(requireContext(), time))
-        viewModel.getStatFun(false)
+        viewModel.getStateTimer(false)
     }
 
     private fun getButtonRendering(timeStarted: Boolean) {
