@@ -11,6 +11,6 @@
 
     <item android:id="@+id/batteryFragment"
         android:title=""
-        android:icon="@drawable/ic_person"/>
+        android:icon="@drawable/ic_average_battery_4_bar_24"/>
 
 </menu>
