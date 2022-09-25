@@ -1,5 +1,6 @@
 package com.rorono.maincomponentsofandroid.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -19,14 +20,20 @@ class PhoneNumbersAdapter : ListAdapter<Contact, PhoneNumbersAdapter.ContactView
         RecyclerView.ViewHolder(binding.root) {
         private val textContactNumber = binding.textViewContactNumber
         private val textContactName = binding.textViewNameContact
+        private val ivAvatar = binding.ivAvatarContacts
         private val ivCallContact = binding.ivCallContact
 
         fun bind(contact: Contact) {
+            Log.d("TEST","contact ${contact}")
             textContactNumber.text = contact.tel
             textContactName.text = contact.name
+            if (contact.avatarId !=null){
+               ivAvatar.setImageBitmap(contact.avatarId)
+            }
             ivCallContact.setOnClickListener {
                 onItemClickListener.onItemClickCall(contact = contact)
             }
+
         }
     }
 
