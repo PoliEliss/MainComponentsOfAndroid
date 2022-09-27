@@ -35,4 +35,5 @@
     <string name="start_and_pause_button">Start and pause button</string>
     <string name="phone_call_button">Phone call button</string>
     <string name="reset_button">Reset button</string>
+    <string name="no_name">No name</string>
 </resources>
