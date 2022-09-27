@@ -22,11 +22,13 @@ class PhoneNumbersAdapter : ListAdapter<Contact, PhoneNumbersAdapter.ContactView
         private val textContactName = binding.textViewNameContact
         private val ivAvatar = binding.ivAvatarContacts
         private val ivCallContact = binding.ivCallContact
+        private val textHomeContactNumber = binding.textViewHomeContactNumber
 
         fun bind(contact: Contact) {
             Log.d("TEST","contact ${contact}")
             textContactNumber.text = contact.tel
             textContactName.text = contact.name
+            textHomeContactNumber.text = contact.homeNumber
             if (contact.avatarId !=null){
                ivAvatar.setImageBitmap(contact.avatarId)
             }
