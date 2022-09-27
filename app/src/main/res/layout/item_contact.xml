@@ -42,6 +42,15 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/tv_contact_number_margin_bottom"
             android:gravity="center"
+            android:text="78888"
+            android:textColor="@color/black"
+            android:textSize="@dimen/tv_contact_number_text_size" />
+        <TextView
+            android:id="@+id/textViewHomeContactNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/tv_contact_number_margin_bottom"
+            android:gravity="center"
             android:textColor="@color/black"
             android:textSize="@dimen/tv_contact_number_text_size" />
 
